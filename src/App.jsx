@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import './App.css'
 import ProjectCard from './components/ProjectCard'
+import { motion } from 'framer-motion'
 
 function App() {
   const [projects, setProjects] = useState([])
@@ -9,6 +10,20 @@ function App() {
   const [displayText, setDisplayText] = useState('')
   const [isDeleting, setIsDeleting] = useState(false)
   const titles = ["Web", "Back-End", "Front-End", "Full-Stack"]
+
+  const fadeInUp = {
+    initial: { y: 20, opacity: 0 },
+    animate: { y: 0, opacity: 1 },
+    transition: { duration: 0.5 }
+  };
+
+  const staggerContainer = {
+    animate: {
+      transition: {
+        staggerChildren: 0.2
+      }
+    }
+  };
 
   useEffect(() => {
     const fetchProjects = async () => {
@@ -50,7 +65,10 @@ function App() {
 
   return (
     <div className="portfolio">
-      <header>
+      <motion.header
+        initial={{ y: -100 }}
+        animate={{ y: 0 }}
+        transition={{ duration: 0.8, type: "spring" }}>
         <nav>
           <ul>
             <li><a href="#home">Accueil</a></li>
@@ -59,46 +77,83 @@ function App() {
             <li><a href="#contact">Contact</a></li>
           </ul>
         </nav>
-      </header>
+      </motion.header>
 
-      <section id="home" className="hero">
-        <h1>Adam Planque</h1>
+      <motion.section 
+        id="home" 
+        className="hero"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 1 }}>
+        <motion.h1 
+          initial={{ scale: 0.5, opacity: 0 }}
+          animate={{ scale: 1, opacity: 1 }}
+          transition={{ duration: 0.5 }}>
+          Adam Planque
+        </motion.h1>
         <div className="typing-container">
           <h2 className="typing-title">
             Développeur <span className="typing-text">{displayText}</span>
             <span className="cursor"></span>
           </h2>
         </div>
-      </section>
+      </motion.section>
 
-      <section id="about" className="about">
-        <h2>À propos</h2>
-        <p>Passionné par le développement et toujours en quête d’apprentissage, je crée des applications web et mobiles en JavaScript, Python et React. 🎯
+      <motion.section 
+        id="about" 
+        className="about"
+        initial="initial"
+        whileInView="animate"
+        viewport={{ once: true }}>
+        <motion.h2 {...fadeInUp}>À propos</motion.h2>
+        <motion.p {...fadeInUp}>
+          Passionné par le développement et toujours en quête d’apprentissage, je crée des applications web et mobiles en JavaScript, Python et React. 🎯
 
-Actuellement, je travaille sur plusieurs projets allant de bots Discord intelligents à des jeux de simulation, en passant par des applications de gestion et des sites interactifs. J’aime expérimenter avec des technologies modernes comme Electron, Node.js, MongoDB et maintenant React avec Vite pour un rendu fluide et dynamique. 🚀
+          Actuellement, je travaille sur plusieurs projets allant de bots Discord intelligents à des jeux de simulation, en passant par des applications de gestion et des sites interactifs. J’aime expérimenter avec des technologies modernes comme Electron, Node.js, MongoDB et maintenant React avec Vite pour un rendu fluide et dynamique. 🚀
 
-Mon objectif ? Concevoir des interfaces modernes avec des animations et effets soignés, tout en optimisant les performances. J’ai aussi une expérience en cybersécurité et en hébergement serveur, avec un serveur personnel configuré pour mes projets.</p>
-      </section>
+          Mon objectif ? Concevoir des interfaces modernes avec des animations et effets soignés, tout en optimisant les performances. J’ai aussi une expérience en cybersécurité et en hébergement serveur, avec un serveur personnel configuré pour mes projets.
+        </motion.p>
+      </motion.section>
 
-      <section id="projects" className="projects">
-        <h2>Mes Projets</h2>
+      <motion.section 
+        id="projects" 
+        className="projects"
+        initial="initial"
+        whileInView="animate"
+        viewport={{ once: true }}
+        variants={staggerContainer}>
+        <motion.h2 {...fadeInUp}>Mes Projets</motion.h2>
         {loading ? (
           <p>Chargement des projets...</p>
         ) : (
-          <div className="projects-grid">
+          <motion.div 
+            className="projects-grid"
+            variants={staggerContainer}
+            initial="initial"
+            animate="animate">
             {projects.map(repo => (
-              <ProjectCard key={repo.id} repo={repo} />
+              <motion.div
+                key={repo.id}
+                variants={fadeInUp}>
+                <ProjectCard repo={repo} />
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
         )}
-      </section>
+      </motion.section>
 
-      <section id="contact" className="contact">
-        <h2>Contact</h2>
-        <p>Email: planque.adam@gmail.com</p>
-        <p>LinkedIn: linkedin.com/in/adam-planque/</p>
-        <p>GitHub: github.com/shadowforce78</p>
-      </section>
+      <motion.section 
+        id="contact" 
+        className="contact"
+        initial="initial"
+        whileInView="animate"
+        viewport={{ once: true }}
+        variants={staggerContainer}>
+        <motion.h2 {...fadeInUp}>Contact</motion.h2>
+        <motion.p variants={fadeInUp}>Email: planque.adam@gmail.com</motion.p>
+        <motion.p variants={fadeInUp}>LinkedIn: linkedin.com/in/adam-planque/</motion.p>
+        <motion.p variants={fadeInUp}>GitHub: github.com/shadowforce78</motion.p>
+      </motion.section>
     </div>
   )
 }
