@@ -104,7 +104,7 @@ function App() {
         className="about"
         initial="initial"
         whileInView="animate"
-        viewport={{ once: true }}>
+        viewport={{ once: true, margin: "-100px" }}> {/* Ajusté le margin de déclenchement */}
         <motion.h2 {...fadeInUp}>À propos</motion.h2>
         <motion.p {...fadeInUp}>
           Passionné par le développement et toujours en quête d’apprentissage, je crée des applications web et mobiles en JavaScript, Python et React. 🎯
@@ -120,8 +120,7 @@ function App() {
         className="projects"
         initial="initial"
         whileInView="animate"
-        viewport={{ once: true }}
-        variants={staggerContainer}>
+        viewport={{ once: true, margin: "-100px" }}>
         <motion.h2 {...fadeInUp}>Mes Projets</motion.h2>
         {loading ? (
           <p>Chargement des projets...</p>
@@ -147,8 +146,7 @@ function App() {
         className="contact"
         initial="initial"
         whileInView="animate"
-        viewport={{ once: true }}
-        variants={staggerContainer}>
+        viewport={{ once: true, margin: "-100px" }}>
         <motion.h2 {...fadeInUp}>Contact</motion.h2>
         <motion.p variants={fadeInUp}>Email: planque.adam@gmail.com</motion.p>
         <motion.p variants={fadeInUp}>LinkedIn: linkedin.com/in/adam-planque/</motion.p>
