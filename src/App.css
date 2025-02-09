@@ -326,4 +326,186 @@ section {
   color: #646CFF;
 }
 
+/* Ajouter après les autres styles */
+
+  .hero h1 {
+.nav-toggle {
+  display: none;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+  z-index: 1001;
+}
+
+.nav-toggle span {
+  display: block;
+  width: 25px;
+  height: 2px;
+  background-color: var(--text);
+  margin: 5px 0;
+  transition: all 0.3s ease;
+}
+
+.nav-toggle.active span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+.nav-toggle.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.nav-toggle.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(7px, -7px);
+}
+
 /* ...rest of existing styles... */
+
+    font-size: 2.5rem;
+  }
+
+  .hero h2, .typing-title {
+    font-size: 1.5rem;
+  }
+
+  .about p {
+    font-size: 0.95rem;
+    padding: 0 15px;
+  }
+
+  .languages-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    padding: 1rem;
+  }
+
+  .projects-grid {
+    grid-template-columns: 1fr;
+    padding: 1rem;
+  }
+
+  section {
+    padding: 30px 10px;
+  }
+
+  .language-item i {
+    font-size: 2.5rem;
+  }
+
+  .language-item span {
+    font-size: 0.9rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .hero h1 {
+    font-size: 2rem;
+  }
+
+  .hero h2, .typing-title {
+    font-size: 1.2rem;
+  }
+
+  .languages-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  nav ul {
+    padding: 0.5rem;
+  }
+
+  nav li {
+    margin: 0 0.5rem;
+  }
+
+  nav a {
+    font-size: 0.9rem;
+  }
+
+  .project-card {
+    padding: 1rem;
+  }
+
+  .project-links {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .contact p {
+    font-size: 0.9rem;
+  }
+}
+
+/* Ajout d'un menu hamburger pour mobile */
+@media screen and (max-width: 600px) {
+  .nav-toggle {
+    display: block;
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+    z-index: 1001;
+  }
+
+  nav ul {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    flex-direction: column;
+    justify-content: center;
+    background: var(--background);
+    transform: translateX(100%);
+    transition: transform 0.3s ease-in-out;
+  }
+
+  nav ul.active {
+    transform: translateX(0);
+  }
+
+  nav li {
+    margin: 1rem 0;
+  }
+}
+
+/* Ajustements pour les grands écrans */
+@media screen and (min-width: 1440px) {
+  .portfolio {
+    max-width: 1400px;
+  }
+
+  .languages-grid {
+    grid-template-columns: repeat(5, 1fr);
+  }
+
+  .projects-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Ajustements pour l'orientation paysage sur mobile */
+@media screen and (max-height: 500px) and (orientation: landscape) {
+  .hero {
+    min-height: auto;
+    padding: 60px 0;
+  }
+  box-sizing: border-box;
+}
+
+}
+
+/* ...rest of existing styles... */
+
+img, svg {
+  max-width: 100%;
+  height: auto;
+  }
+}
+
+/* Ajustements pour éviter les problèmes de débordement */
+* {
+  max-width: 100%;
+
+  section {
+    min-height: auto;
+    padding: 20px 0;

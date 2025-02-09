@@ -9,6 +9,7 @@ function App() {
   const [titleIndex, setTitleIndex] = useState(0)
   const [displayText, setDisplayText] = useState('')
   const [isDeleting, setIsDeleting] = useState(false)
+  const [isMenuOpen, setIsMenuOpen] = useState(false)
   const titles = ["Web", "Back-End", "Front-End", "Full-Stack"]
 
   const fadeInUp = {
@@ -24,6 +25,14 @@ function App() {
       }
     }
   };
+
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen)
+  }
+
+  const closeMenu = () => {
+    setIsMenuOpen(false)
+  }
 
   useEffect(() => {
     const fetchProjects = async () => {
@@ -69,12 +78,20 @@ function App() {
         initial={{ y: -100 }}
         animate={{ y: 0 }}
         transition={{ duration: 0.8, type: "spring" }}>
+        <button 
+          className="nav-toggle" 
+          onClick={toggleMenu}
+          aria-label="Toggle menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
         <nav>
-          <ul>
-            <li><a href="#home">Accueil</a></li>
-            <li><a href="#about">À propos</a></li>
-            <li><a href="#projects">Projets</a></li>
-            <li><a href="#contact">Contact</a></li>
+          <ul className={isMenuOpen ? 'active' : ''}>
+            <li><a href="#home" onClick={closeMenu}>Accueil</a></li>
+            <li><a href="#about" onClick={closeMenu}>À propos</a></li>
+            <li><a href="#projects" onClick={closeMenu}>Projets</a></li>
+            <li><a href="#contact" onClick={closeMenu}>Contact</a></li>
           </ul>
         </nav>
       </motion.header>
