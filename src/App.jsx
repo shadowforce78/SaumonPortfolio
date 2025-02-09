@@ -40,9 +40,9 @@ function App() {
 
       <section id="contact" className="contact">
         <h2>Contact</h2>
-        <p>Email: contact@example.com</p>
-        <p>LinkedIn: linkedin.com/in/johndoe</p>
-        <p>GitHub: github.com/johndoe</p>
+        <p>Email: planque.adam@gmail.com</p>
+        <p>LinkedIn: linkedin.com/in/adam-planque/</p>
+        <p>GitHub: github.com/shadowforce78</p>
       </section>
     </div>
   )
