@@ -73,7 +73,11 @@ function App() {
 
       <section id="about" className="about">
         <h2>À propos</h2>
-        <p>Passionné par le développement web et les nouvelles technologies.</p>
+        <p>Passionné par le développement et toujours en quête d’apprentissage, je crée des applications web et mobiles en JavaScript, Python et React. 🎯
+
+Actuellement, je travaille sur plusieurs projets allant de bots Discord intelligents à des jeux de simulation, en passant par des applications de gestion et des sites interactifs. J’aime expérimenter avec des technologies modernes comme Electron, Node.js, MongoDB et maintenant React avec Vite pour un rendu fluide et dynamique. 🚀
+
+Mon objectif ? Concevoir des interfaces modernes avec des animations et effets soignés, tout en optimisant les performances. J’ai aussi une expérience en cybersécurité et en hébergement serveur, avec un serveur personnel configuré pour mes projets.</p>
       </section>
 
       <section id="projects" className="projects">
