@@ -326,41 +326,9 @@ section {
   color: #646CFF;
 }
 
-/* Ajouter après les autres styles */
-
+/* Styles Responsive */
+@media screen and (max-width: 768px) {
   .hero h1 {
-.nav-toggle {
-  display: none;
-  background: transparent;
-  border: none;
-  cursor: pointer;
-  padding: 0.5rem;
-  z-index: 1001;
-}
-
-.nav-toggle span {
-  display: block;
-  width: 25px;
-  height: 2px;
-  background-color: var(--text);
-  margin: 5px 0;
-  transition: all 0.3s ease;
-}
-
-.nav-toggle.active span:nth-child(1) {
-  transform: rotate(45deg) translate(5px, 5px);
-}
-
-.nav-toggle.active span:nth-child(2) {
-  opacity: 0;
-}
-
-.nav-toggle.active span:nth-child(3) {
-  transform: rotate(-45deg) translate(7px, -7px);
-}
-
-/* ...rest of existing styles... */
-
     font-size: 2.5rem;
   }
 
@@ -436,14 +404,44 @@ section {
   }
 }
 
-/* Ajout d'un menu hamburger pour mobile */
+/* Menu hamburger */
+.nav-toggle {
+  display: none;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+  z-index: 1001;
+}
+
+.nav-toggle span {
+  display: block;
+  width: 25px;
+  height: 2px;
+  background-color: var(--text);
+  margin: 5px 0;
+  transition: all 0.3s ease;
+}
+
+.nav-toggle.active span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+.nav-toggle.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.nav-toggle.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(7px, -7px);
+}
+
+/* Mobile menu styles */
 @media screen and (max-width: 600px) {
   .nav-toggle {
     display: block;
     position: fixed;
     top: 1rem;
     right: 1rem;
-    z-index: 1001;
   }
 
   nav ul {
@@ -468,7 +466,7 @@ section {
   }
 }
 
-/* Ajustements pour les grands écrans */
+/* Grand écran */
 @media screen and (min-width: 1440px) {
   .portfolio {
     max-width: 1400px;
@@ -483,29 +481,26 @@ section {
   }
 }
 
-/* Ajustements pour l'orientation paysage sur mobile */
+/* Mode paysage mobile */
 @media screen and (max-height: 500px) and (orientation: landscape) {
   .hero {
     min-height: auto;
     padding: 60px 0;
   }
-  box-sizing: border-box;
-}
-
-}
-
-/* ...rest of existing styles... */
-
-img, svg {
-  max-width: 100%;
-  height: auto;
-  }
-}
-
-/* Ajustements pour éviter les problèmes de débordement */
-* {
-  max-width: 100%;
 
   section {
     min-height: auto;
     padding: 20px 0;
+  }
+}
+
+/* Utilitaires */
+* {
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+img, svg {
+  max-width: 100%;
+  height: auto;
+}
