@@ -15,8 +15,8 @@ function App() {
       </header>
 
       <section id="home" className="hero">
-        <h1>John Doe</h1>
-        <h2>Développeur Web</h2>
+        <h1>Adam Planque</h1>
+        <h2>Développeur Full-Stack</h2>
       </section>
 
       <section id="about" className="about">
