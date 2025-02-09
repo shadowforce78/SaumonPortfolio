@@ -116,6 +116,61 @@ function App() {
       </motion.section>
 
       <motion.section 
+        id="languages" 
+        className="languages"
+        initial="initial"
+        whileInView="animate"
+        viewport={{ once: true, margin: "-100px" }}>
+        <motion.h2 {...fadeInUp}>Langages & Technologies</motion.h2>
+        <motion.div 
+          className="languages-grid"
+          variants={staggerContainer}
+          initial="initial"
+          animate="animate">
+          <motion.div className="language-item" variants={fadeInUp}>
+            <i className="devicon-javascript-plain colored"></i>
+            <span>JavaScript</span>
+          </motion.div>
+          <motion.div className="language-item" variants={fadeInUp}>
+            <i className="devicon-python-plain colored"></i>
+            <span>Python</span>
+          </motion.div>
+          <motion.div className="language-item" variants={fadeInUp}>
+            <i className="devicon-java-plain colored"></i>
+            <span>Java</span>
+          </motion.div>
+          <motion.div className="language-item" variants={fadeInUp}>
+            <i className="devicon-c-plain colored"></i>
+            <span>C</span>
+          </motion.div>
+          <motion.div className="language-item" variants={fadeInUp}>
+            <i className="devicon-cplusplus-plain colored"></i>
+            <span>C++</span>
+          </motion.div>
+          <motion.div className="language-item" variants={fadeInUp}>
+            <i className="devicon-csharp-plain colored"></i>
+            <span>C#</span>
+          </motion.div>
+          <motion.div className="language-item" variants={fadeInUp}>
+            <i className="devicon-react-original colored"></i>
+            <span>React</span>
+          </motion.div>
+          <motion.div className="language-item" variants={fadeInUp}>
+            <i className="devicon-html5-plain colored"></i>
+            <span>HTML</span>
+          </motion.div>
+          <motion.div className="language-item" variants={fadeInUp}>
+            <i className="devicon-css3-plain colored"></i>
+            <span>CSS</span>
+          </motion.div>
+          <motion.div className="language-item" variants={fadeInUp}>
+            <i className="devicon-vitejs-plain colored"></i>
+            <span>Vite.js</span>
+          </motion.div>
+        </motion.div>
+      </motion.section>
+
+      <motion.section 
         id="projects" 
         className="projects"
         initial="initial"

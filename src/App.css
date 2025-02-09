@@ -270,3 +270,60 @@ section {
   color: transparent;
   font-weight: bold;
 }
+
+/* ...existing styles... */
+
+.languages {
+  padding: 40px 0;
+  background: var(--surface);
+  border-radius: 12px;
+  margin: 20px auto;
+  max-width: 900px;
+}
+
+.languages-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); /* Réduit la taille minimale */
+  gap: 1.5rem; /* Réduit légèrement l'espacement */
+  padding: 2rem;
+  margin-top: 1rem;
+  max-width: 1000px; /* Augmente la largeur maximale */
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.language-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1rem;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.language-item:hover {
+  transform: translateY(-5px);
+}
+
+.language-item i {
+  font-size: 3rem;
+  transition: all 0.3s ease;
+}
+
+.language-item:hover i {
+  filter: drop-shadow(0 0 8px var(--accent));
+}
+
+.language-item span {
+  font-size: 1rem;
+  color: var(--text);
+  font-weight: 500;
+}
+
+/* Ajout de couleurs spécifiques pour certains icônes */
+.devicon-vitejs-plain.colored {
+  color: #646CFF;
+}
+
+/* ...rest of existing styles... */
