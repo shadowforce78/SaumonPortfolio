@@ -1,6 +1,30 @@
+import { useState, useEffect } from 'react'
 import './App.css'
+import ProjectCard from './components/ProjectCard'
 
 function App() {
+  const [projects, setProjects] = useState([])
+  const [loading, setLoading] = useState(true)
+
+  useEffect(() => {
+    const fetchProjects = async () => {
+      try {
+        const response = await fetch('https://api.github.com/users/shadowforce78/repos?sort=updated&direction=desc')
+        const data = await response.json()
+        const filteredProjects = data
+          .filter(repo => !repo.fork)
+          .slice(0, 5) // Prendre uniquement les 5 premiers projets
+        setProjects(filteredProjects)
+        setLoading(false)
+      } catch (error) {
+        console.error('Erreur lors de la récupération des projets:', error)
+        setLoading(false)
+      }
+    }
+
+    fetchProjects()
+  }, [])
+
   return (
     <div className="portfolio">
       <header>
@@ -26,16 +50,15 @@ function App() {
 
       <section id="projects" className="projects">
         <h2>Mes Projets</h2>
-        <div className="projects-grid">
-          <div className="project-card">
-            <h3>Projet 1</h3>
-            <p>Description du projet</p>
+        {loading ? (
+          <p>Chargement des projets...</p>
+        ) : (
+          <div className="projects-grid">
+            {projects.map(repo => (
+              <ProjectCard key={repo.id} repo={repo} />
+            ))}
           </div>
-          <div className="project-card">
-            <h3>Projet 2</h3>
-            <p>Description du projet</p>
-          </div>
-        </div>
+        )}
       </section>
 
       <section id="contact" className="contact">

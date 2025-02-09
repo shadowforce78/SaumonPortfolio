@@ -105,10 +105,66 @@ section {
 }
 
 .project-card {
-  background: #f5f5f5;
+  background: #2a2a2a;
   padding: 1.5rem;
-  border-radius: 8px;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+  transition: all 0.3s ease-in-out;
+  color: #fff;
+  border: 1px solid #3a3a3a;
+}
+
+.project-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+  border-color: #4a4a4a;
+}
+
+.project-card h3 {
+  color: #61dafb;
+  margin-bottom: 1rem;
+  font-size: 1.4rem;
+}
+
+.project-card p {
+  color: #b3b3b3;
+  line-height: 1.5;
+}
+
+.project-links {
+  display: flex;
+  gap: 1rem;
+  margin: 1.5rem 0;
+}
+
+.project-links a {
+  padding: 0.6rem 1.2rem;
+  background: #61dafb;
+  color: #1a1a1a;
+  text-decoration: none;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  font-weight: bold;
+  transition: all 0.2s ease;
+}
+
+.project-links a:hover {
+  background: #4fa8c9;
+  transform: scale(1.05);
+}
+
+.project-stats {
+  display: flex;
+  gap: 1.5rem;
+  font-size: 0.9rem;
+  color: #888;
+  margin-top: 1rem;
+}
+
+.project-stats span {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
 }
 
 .contact {
