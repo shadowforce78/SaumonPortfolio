@@ -5,6 +5,10 @@ import ProjectCard from './components/ProjectCard'
 function App() {
   const [projects, setProjects] = useState([])
   const [loading, setLoading] = useState(true)
+  const [titleIndex, setTitleIndex] = useState(0)
+  const [displayText, setDisplayText] = useState('')
+  const [isDeleting, setIsDeleting] = useState(false)
+  const titles = ["Web", "Back-End", "Front-End", "Full-Stack"]
 
   useEffect(() => {
     const fetchProjects = async () => {
@@ -25,6 +29,25 @@ function App() {
     fetchProjects()
   }, [])
 
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      const currentText = titles[titleIndex];
+      
+      if (!isDeleting && displayText !== currentText) {
+        setDisplayText(currentText.slice(0, displayText.length + 1));
+      } else if (!isDeleting && displayText === currentText) {
+        setTimeout(() => setIsDeleting(true), 1500);
+      } else if (isDeleting && displayText !== '') {
+        setDisplayText(currentText.slice(0, displayText.length - 1));
+      } else if (isDeleting && displayText === '') {
+        setIsDeleting(false);
+        setTitleIndex((current) => (current + 1) % titles.length);
+      }
+    }, isDeleting ? 50 : 100);
+
+    return () => clearTimeout(timer);
+  }, [displayText, isDeleting, titleIndex, titles]);
+
   return (
     <div className="portfolio">
       <header>
@@ -40,7 +63,12 @@ function App() {
 
       <section id="home" className="hero">
         <h1>Adam Planque</h1>
-        <h2>Développeur Full-Stack</h2>
+        <div className="typing-container">
+          <h2 className="typing-title">
+            Développeur <span className="typing-text">{displayText}</span>
+            <span className="cursor"></span>
+          </h2>
+        </div>
       </section>
 
       <section id="about" className="about">
